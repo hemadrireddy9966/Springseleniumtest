@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 import static io.cucumber.junit.CucumberOptions.SnippetType.CAMELCASE;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src/test/resources/features/websites.feature", plugin = {"pretty", "json:target/cucumber.json","html:target/CucumberTestReport.html"}, snippets = CAMELCASE)
+@CucumberOptions(features = "src/test/resources/features", plugin = {"pretty", "json:target/cucumber.json","html:target/CucumberTestReport.html"}, snippets = CAMELCASE)
 public class
 CucumberTest {
 }
