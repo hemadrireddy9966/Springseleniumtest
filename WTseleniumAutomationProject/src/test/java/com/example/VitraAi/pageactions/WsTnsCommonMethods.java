@@ -132,10 +132,23 @@ public class WsTnsCommonMethods extends Common {
     public void glossaryFileSearch(String glossaryName) {
         log.info("glossaryFileSearch in Glossary Tab Started");
         try {
-            System.out.println("glossary file name"+glossaryName);
+            System.out.println("glossary file name" + glossaryName);
             Thread.sleep(5000);
-            super.enterTextUsingJS(By.xpath("//input[@placeholder='Search By name']"),glossaryName);
-            driver.findElement(By.xpath("//div[@class='inline-block cursor-pointer']")).click();
+            Boolean b = isElementVisible(retriveLocators(dynamicXpathGenerator(glossary.get("glossarySelect"), glossaryName)));
+            if (!b) {
+                List<WebElement> lw = driver.findElements(By.xpath("//li[@class='flex']"));
+                int t = lw.size();
+                System.out.println("number of pages in glossary tab:- " + t);
+                for (int i = 1; i <= t; i++) {
+                    driver.findElement(By.xpath("//li[@class='flex']/child::a[text()='" + (i + 1) + "']")).click();
+                    Boolean b1 = isElementVisible(retriveLocators(dynamicXpathGenerator(glossary.get("glossarySelect"), glossaryName)));
+                    if (b1) {
+                        // super.waitForTheElement(retriveLocators(dynamicXpathGenerator(glossary.get("glossarySelect"), glossaryName)), VISIBILITY_OF_ELEMENT_LOCATED);
+//                        super.isTextVisible(retriveLocators(dynamicXpathGenerator(glossary.get("glossarySelect"), glossaryName)), glossaryName);
+                        break;
+                    }
+                }
+            }
 
         } catch (Exception e) {
             super.exceptionLogger(BeforeTag.scenario, e);
