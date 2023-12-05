@@ -22,7 +22,7 @@ import java.util.Map;
 public class WsTnsCommonMethods extends Common {
     private final Map<String, String> wsc = super.readPropertiesFile(PageObjectsFactory.wscommon);
     private final Map<String, String> rbck = super.readPropertiesFile(PageObjectsFactory.rbck);
-
+private final Map<String, String> glossary = super.readPropertiesFile(PageObjectsFactory.glossary);
     public WsTnsCommonMethods(WebDriver driver) {super(driver);}
     public void navigatingToTeams() {
         log.info("navigatingToTeams Started");
