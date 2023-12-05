@@ -3,7 +3,7 @@ package com.example.VitraAi.pageobject;
 public class PageObjectsFactory {
 
     public final static String objectPath= System.getProperty("user.dir")+"/src/test/resources/objectRepository/";
-    public final static String glossaryPath= System.getProperty("user.dir")+"/src/test/resources/WTnsGLossaryFiles/";
+    public final static String glossaryPath= System.getProperty("user.dir")+"/src/test/resources/uploadResource/";
     public static String WTlogin = objectPath+"WebsiteTrans.properties";
     public static String googlepro = objectPath+"googlesignup.properties";
     public static String glossary = objectPath+"Glossary.properties";
