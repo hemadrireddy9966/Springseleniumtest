@@ -11,6 +11,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.WebElement;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -132,7 +133,7 @@ private final Map<String, String> glossary = super.readPropertiesFile(PageObject
     public void glossaryFileSearch(String glossaryName) {
         log.info("glossaryFileSearch in Glossary Tab Started");
         try {
-            System.out.println("glossary file name" + glossaryName);
+                 System.out.println("glossary file name" + glossaryName);
             Thread.sleep(5000);
             Boolean b = isElementVisible(retriveLocators(dynamicXpathGenerator(glossary.get("glossarySelect"), glossaryName)));
             if (!b) {
@@ -143,7 +144,7 @@ private final Map<String, String> glossary = super.readPropertiesFile(PageObject
                     driver.findElement(By.xpath("//li[@class='flex']/child::a[text()='" + (i + 1) + "']")).click();
                     Boolean b1 = isElementVisible(retriveLocators(dynamicXpathGenerator(glossary.get("glossarySelect"), glossaryName)));
                     if (b1) {
-                        // super.waitForTheElement(retriveLocators(dynamicXpathGenerator(glossary.get("glossarySelect"), glossaryName)), VISIBILITY_OF_ELEMENT_LOCATED);
+                        super.waitForTheElement(retriveLocators(dynamicXpathGenerator(glossary.get("glossarySelect"), glossaryName)), VISIBILITY_OF_ELEMENT_LOCATED);
 //                        super.isTextVisible(retriveLocators(dynamicXpathGenerator(glossary.get("glossarySelect"), glossaryName)), glossaryName);
                         break;
                     }
